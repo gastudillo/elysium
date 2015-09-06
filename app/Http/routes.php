@@ -37,4 +37,9 @@ Route::get('/admin', ['middleware' => 'auth', 'uses' => 'AdminController@loadAdm
 /* Characters */
 Route::post('/admin/characters/add', 'CharacterController@add');
 Route::post('/admin/characters/get', 'CharacterController@get');
-Route::post('/admin/characters/delete', 'CharacterController@delete');
+
+Route::post('/admin/characters/delete/{id}', ['middleware' => 'auth', 'uses' => 'CharacterController@delete']);
+Route::post('/admin/characters/page/{number}', ['middleware' => 'auth', 'uses' => 'CharacterController@getPage']);
+Route::post('/admin/characters/count', ['middleware' => 'auth', 'uses' => 'CharacterController@getTotalPages']);
+
+

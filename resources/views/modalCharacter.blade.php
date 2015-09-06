@@ -1,4 +1,5 @@
-<div id="addCharacterDiv" class="modal fade" role="dialog">
+<!-- Añadir personaje -->
+<div id="addCharacterDiv" class="modal fade characterModal" role="dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
@@ -54,6 +55,31 @@
 	    <div class="modal-footer">
 			<button type="button" class="btn btn-default" id="saveCharacter">Guardar</button>
 	    	<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	    </div>
+    </div>
+
+</div>
+
+<!-- Eliminar personaje -->
+<div id="deleteCharacterDiv" class="modal fade characterModal" role="dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+    	<div class="modal-header">
+        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+        	<h4 class="modal-title">Eliminar personaje</h4>
+      	</div>
+    
+	    <div class="modal-body">
+
+	    	<div id="modalBodyForm">
+	    		¿Seguro que quieres eliminar el personaje?
+	    	</div>
+	    </div>
+	    
+	    <div class="modal-footer">
+			<button type="button" class="btn btn-default" id="deleteCharacter">Eliminar</button>
+	    	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 	    </div>
     </div>
 

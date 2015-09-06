@@ -16,7 +16,12 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
         <script src="js/admin.js"></script>
+        
+        <script src="js/handlebars/handlebars-v4.0.2.js"></script>
+        
         <link rel="stylesheet" href="css/admin.css">
+        
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         @section('styles')
         <!-- Styles -->
@@ -26,6 +31,10 @@
     <body>
 
       @yield('body')
+      
+    <script type="text/javascript">
+		var baseUrl = "<?php print(url('/', $parameters = array(), $secure = null)); ?>";
+	</script>
       
     </body>
 </html>

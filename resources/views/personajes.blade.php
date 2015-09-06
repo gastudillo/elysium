@@ -1,10 +1,13 @@
           <h1 class="sub-header">Listado de personajes</h1>
           <div id="operations">
+          	<!-- Añadir personaje -->
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addCharacterDiv">Añadir personaje</button>
+            <!-- Eliminar personaje -->
+            <button id="deleteButton" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#deleteCharacterDiv">Eliminar personaje</button>
           </div>
 
-          <!-- Añadir personaje -->
-          @include('addCharacter')
+          <!-- Ventanas modales de personaje -->
+          @include('modalCharacter')
 
           <div class="table-responsive">
             <table class="table table-striped">
@@ -20,17 +23,39 @@
                 </tr>
               </thead>
               
-              <tbody>
-                @foreach ($characters as $character)
-                <tr>
-                  <td></td>
-                  <td>{{ $character->chr_name }}</td>
-                  <td>{{ $character->chr_clan }}</td>
-                  <td>{{ $character->chr_desc }}</td>
-                  <td>{{ $character->chr_origin }}</td>
-                  <td>{{ $character->chr_user_id }}</td>
-                </tr>
-                @endforeach
+              <tbody id="charactersList">
+
               </tbody>
+              <tfoot>
+              	<tr>
+              		<th></th>
+              		<th></th>
+              		<th></th>
+              		<th></th>
+              		<th></th>
+                  	<th>
+                  		<ul id="characterPaginator" class="pagination">
+						</ul>
+						<input type="hidden" id="actualPage" value="1" />
+                  	</th>
+              	</tr>
+              </tfoot>
             </table>
           </div>
+          
+		<script id="characters-template" type="text/x-handlebars-template">
+		@{{#each characters}}
+		<tr>
+			<td>
+				<input name="characterId" type="checkbox" value="@{{id}}"/>
+			</td>
+   	 		<td>@{{name}}</td>
+    		<td>@{{clan}}</td>
+    		<td>@{{desc}}</td>
+    		<td>@{{origin}}</td>
+    		<td>@{{user_name}}</td>
+		</tr>
+		@{{/each}}
+		</script>
+				
+			
